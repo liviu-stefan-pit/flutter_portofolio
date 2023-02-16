@@ -42,7 +42,6 @@ jobs:
       - run: flutter clean
       - run: flutter build ios --release --no-codesign
       - name: Release Artifacts (IOS)
-        uses: actions/checkout@v2
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/ios/iphoneos/Runner.app"
@@ -67,7 +66,6 @@ jobs:
       - run: flutter clean
       - run: flutter build appbundle
       - name: Release Artifacts (Android)
-        uses: actions/checkout@v2
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/bundle/release/app-release.aab"
@@ -92,7 +90,6 @@ jobs:
       - run: flutter clean
       - run: flutter build windows --release
       - name: Release Artifacts (Windows)
-        uses: actions/checkout@v2
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/windows/runner/Release/ShareLib.exe"
@@ -149,7 +146,6 @@ jobs:
       - run: flutter clean
       - run: flutter build web --release
       - name: Release Artifacts (Web)
-        uses: actions/checkout@v2
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/web"
