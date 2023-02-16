@@ -5,7 +5,6 @@ import 'package:http/http.dart' as http;
 import '../models/book.dart';
 import '../models/books.dart';
 import '../constants/constants.dart';
-import '../exceptions/book_exception.dart';
 import 'http_error_handler.dart';
 
 class BookApiServices {
@@ -33,7 +32,6 @@ class BookApiServices {
       }
 
       final b = response.body;
-      print(b);
       final booksJson = jsonDecode(response.body);
       final Books books = Books.fromJson(booksJson['items']);
 

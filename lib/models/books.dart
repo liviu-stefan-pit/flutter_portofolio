@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:equatable/equatable.dart';
 
 import 'book.dart';
@@ -24,9 +22,8 @@ class Books extends Equatable {
       try {
         var book = Book.fromJson(json[i]);
         books.add(book);
-      } catch (e) {
-        print(e);
-      }
+        // ignore: empty_catches
+      } catch (e) {}
     }
 
     return Books(books: books);

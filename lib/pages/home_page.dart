@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
     }
 
     return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
       ),
       itemCount: state.books.books.length,
@@ -88,26 +88,26 @@ class _HomePageState extends State<HomePage> {
                   book.thumbnail!,
                   fit: BoxFit.fitWidth,
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Container(
                   width: double.infinity,
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     book.title!,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Container(
                   width: double.infinity,
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     book.authors.join(', '),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 14,
                     ),
                     textAlign: TextAlign.center,
@@ -137,6 +137,7 @@ class _HomePageState extends State<HomePage> {
                 }),
               );
               if (_book != null) {
+                // ignore: use_build_context_synchronously
                 context.read<BooksProvider>().fetchBooks(_book!);
               }
             },
