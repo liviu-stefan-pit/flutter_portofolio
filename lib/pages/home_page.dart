@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: 8),
                 Container(
                   width: double.infinity,
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     book.title!,
                     style: const TextStyle(

@@ -22,8 +22,6 @@ class BookApiServices {
       },
     );
 
-    List<Book> books = [];
-
     try {
       final http.Response response = await httpClient.get(uri);
 
@@ -31,7 +29,6 @@ class BookApiServices {
         throw Exception(httpErrorHandler(response));
       }
 
-      final b = response.body;
       final booksJson = jsonDecode(response.body);
       final Books books = Books.fromJson(booksJson['items']);
 
