@@ -42,12 +42,12 @@ jobs:
       - run: flutter clean
       - run: flutter build ios --release --no-codesign
       - name: Release Artifacts (IOS)
-        uses: ncipollo/release-action@v1
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags')
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          artifacts: "build/ios/iphoneos/Runner.app"
-          token: ${{ secrets.TOKEN }}
-          name: "ShareLib-${{github.ref_name}}-ios.app"
-          prerelease: true
+          files: build/ios/iphoneos/Runner.app
 
   build_appbundle:
     name: Build Flutter (Android)
@@ -65,12 +65,12 @@ jobs:
       - run: flutter clean
       - run: flutter build appbundle
       - name: Release Artifacts (Android)
-        uses: ncipollo/release-action@v1
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags')
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          artifacts: "build/app/outputs/bundle/release/app-release.aab"
-          token: ${{ secrets.TOKEN }}
-          name: "ShareLib-${{github.ref_name}}-android.aab"
-          prerelease: true
+          files: build/app/outputs/bundle/release/app-release.aab
 
   build_windows:
     name: Build Flutter (Windows)
@@ -88,12 +88,12 @@ jobs:
       - run: flutter clean
       - run: flutter build windows --release
       - name: Release Artifacts (Windows)
-        uses: ncipollo/release-action@v1
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags')
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          artifacts: "build/windows/runner/Release/ShareLib.exe"
-          token: ${{ secrets.TOKEN }}
-          name: "ShareLib-${{github.ref_name}}-windows.exe"
-          prerelease: true
+          files: build/windows/runner/Release/runner.exe
   
   # build_linux:
   #   name: Build Flutter (Linux)
@@ -143,9 +143,9 @@ jobs:
       - run: flutter clean
       - run: flutter build web --release
       - name: Release Artifacts (Web)
-        uses: ncipollo/release-action@v1
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags')
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          artifacts: "build/web"
-          token: ${{ secrets.TOKEN }}
-          name: "ShareLib-${{github.ref_name}}-web.zip"
-          prerelease: true
+          files: build/web
