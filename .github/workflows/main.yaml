@@ -148,7 +148,7 @@ jobs:
       - run: flutter pub get
       - run: flutter clean
       - run: flutter build web --release
-      = name: Release Artifacts (Web)
+      - name: Release Artifacts (Web)
         uses: actions/checkout@v2
         uses: ncipollo/release-action@v1
         with:
