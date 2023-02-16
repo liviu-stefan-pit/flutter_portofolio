@@ -47,7 +47,6 @@ jobs:
           artifacts: "build/ios/iphoneos/Runner.app"
           token: ${{ secrets.TOKEN }}
           name: "ShareLib-${{github.ref_name}}-ios.app"
-          tag: ${{ github.ref_name }}
           prerelease: true
 
   build_appbundle:
@@ -71,7 +70,6 @@ jobs:
           artifacts: "build/app/outputs/bundle/release/app-release.aab"
           token: ${{ secrets.TOKEN }}
           name: "ShareLib-${{github.ref_name}}-android.aab"
-          tag: ${{ github.ref_name }}
           prerelease: true
 
   build_windows:
@@ -95,7 +93,6 @@ jobs:
           artifacts: "build/windows/runner/Release/ShareLib.exe"
           token: ${{ secrets.TOKEN }}
           name: "ShareLib-${{github.ref_name}}-windows.exe"
-          tag: ${{ github.ref_name }}
           prerelease: true
   
   # build_linux:
@@ -151,5 +148,4 @@ jobs:
           artifacts: "build/web"
           token: ${{ secrets.TOKEN }}
           name: "ShareLib-${{github.ref_name}}-web.zip"
-          tag: ${{ github.ref_name }}
           prerelease: true
